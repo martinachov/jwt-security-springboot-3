@@ -19,7 +19,7 @@ public class RegisterUserUseCaseImpl implements RegisterUserUseCase {
 
     @Override
     public void execute(User user) throws UserAlreadyExistsException {
-        if(userRepository.existsByEmail(user.getEmail()))
+        if(userRepository.findByEmail(user.getEmail()).isPresent())
            throw  new UserAlreadyExistsException("User already exist !!");
 
         User newUser = User.builder()

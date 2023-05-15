@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.martinachov.security.infrastructure.adapters.persistence.JpaUserRepository;
+import com.martinachov.security.infrastructure.adapters.persistence.repositories.JpaUserRepository;
 
 import lombok.RequiredArgsConstructor;
 

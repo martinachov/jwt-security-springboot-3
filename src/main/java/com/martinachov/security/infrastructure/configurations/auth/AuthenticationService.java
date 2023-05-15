@@ -5,7 +5,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.stereotype.Service;
 
 import com.martinachov.security.domain.model.User;
-import com.martinachov.security.infrastructure.adapters.persistence.JpaUserRepository;
+import com.martinachov.security.infrastructure.adapters.persistence.entities.UserEntity;
+import com.martinachov.security.infrastructure.adapters.persistence.repositories.JpaUserRepository;
 import com.martinachov.security.infrastructure.adapters.rest.dtos.LoginCredentialsDto;
 import com.martinachov.security.infrastructure.adapters.rest.dtos.TokenDto;
 
@@ -24,7 +25,7 @@ public class AuthenticationService {
             new UsernamePasswordAuthenticationToken(credentials.getUsername(), credentials.getPassword())
         );
 
-        User user = userRepository.findByEmail(credentials.getUsername()).orElseThrow();
+        UserEntity user = userRepository.findByEmail(credentials.getUsername()).orElseThrow();
         String token = jwtService.generateToken(user.getEmail());
 
         return TokenDto.builder().token(token).build();

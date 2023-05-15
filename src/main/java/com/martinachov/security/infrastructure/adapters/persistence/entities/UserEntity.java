@@ -3,8 +3,11 @@ package com.martinachov.security.infrastructure.adapters.persistence.entities;
 import java.util.Collection;
 import java.util.Collections;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.martinachov.security.domain.model.User;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,9 +20,9 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-// @Entity(name = "APP_USER")
+@NoArgsConstructor
+@Entity(name = "APP_USER")
 public class UserEntity implements UserDetails {
 
     @Id

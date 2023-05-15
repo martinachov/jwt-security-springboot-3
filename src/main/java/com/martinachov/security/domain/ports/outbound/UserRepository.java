@@ -5,8 +5,6 @@ import java.util.Optional;
 import com.martinachov.security.domain.model.User;
 
 public interface UserRepository {
-    
-    Boolean existsByEmail(String email);
 
     User save(User user);
 
